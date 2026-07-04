@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Personal Home</title>
+<style>
+    :root {
+        --bg-color: #f4f4f4;
+        --main-black: #1a1a1a;
+        --main-white: #ffffff;
+        --main-red: #d32f2f;
+        --border-style: 2px solid var(--main-black);
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-color);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--main-black);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        background-image: 
+            linear-gradient(rgba(211, 47, 47, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(211, 47, 47, 0.05) 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
 
+    .container {
+        display: flex;
+        width: 1000px;
+        margin-top: 50px;
+        gap: 20px;
+    }
+
+    /* 좌측 사이드바 */
+    .sidebar {
+        width: 200px;
+        background-color: var(--main-white);
+        border: var(--border-style);
+        border-radius: 20px;
+        padding: 20px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 4px 4px 0px var(--main-black);
+    }
+
+    .profile-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: var(--border-style);
+        background-color: var(--bg-color);
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+
+    .profile-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .menu {
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu li {
+        margin: 15px 0;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+
+    .menu li:hover { color: var(--main-red); }
+
+    /* 우측 메인 콘텐츠 */
+    .content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* 상단 배너 (OS 창 스타일) */
+    .hero-window {
+        background-color: var(--main-white);
+        border: var(--border-style);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 4px 4px 0px var(--main-black);
+    }
+
+    .window-header {
+        background-color: var(--main-black);
+        padding: 8px 15px;
+        display: flex;
+        gap: 8px;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: var(--main-white);
+    }
+    .dot:nth-child(1) { background-color: var(--main-red); }
+
+    .banner-img {
+        width: 100%;
+        height: 250px;
+        background-color: #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .banner-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* 하단 위젯 그리드 */
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .card {
+        background-color: var(--main-white);
+        border: var(--border-style);
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 3px 3px 0px var(--main-black);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .card-img {
+        width: 100%;
+        height: 80px;
+        background-color: var(--bg-color);
+        border: 1px solid var(--main-black);
+        margin-bottom: 10px;
+    }
+    
+    .card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .highlight {
+        background-color: var(--main-black);
+        color: var(--main-white);
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- 사이드바 -->
+    <aside class="sidebar">
+        <div class="profile-img">
+            <!-- 프로필 이미지 업로드 후 파일명 변경 (예: profile.png) -->
+            <img src="profile.png" alt="Profile" onerror="this.style.display='none'">
+        </div>
+        <h2>NAME</h2>
+        <ul class="menu">
+            <li>♥ COUPLE</li>
+            <li>☑ POSTING</li>
+            <li>✪ TRPG</li>
+        </ul>
+    </aside>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="content">
+        <!-- 메인 배너 -->
+        <div class="hero-window">
+            <div class="window-header">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div class="banner-img">
+                <!-- 배너 이미지 업로드 후 파일명 변경 (예: banner.png) -->
+                <img src="banner.png" alt="Banner" onerror="this.style.display='none'">
+            </div>
+        </div>
+
+        <!-- 하단 카드들 -->
+        <div class="dashboard-grid">
+            <div class="card">
+                <span class="highlight">STATUS</span>
+                <p>현재 상태나 텍스트를 적는 공간입니다.</p>
+            </div>
+            <div class="card">
+                <div class="card-img">
+                    <img src="card1.png" alt="Card 1" onerror="this.style.display='none'">
+                </div>
+                <p>CHARACTER</p>
+            </div>
+            <div class="card">
+                <div class="card-img">
+                    <img src="card2.png" alt="Card 2" onerror="this.style.display='none'">
+                </div>
+                <p>LOGS</p>
+            </div>
+        </div>
+    </main>
+</div>
+
+</body>
+</html>
